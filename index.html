@@ -4,7 +4,7 @@
   <!--
     TITULO: PÁGINA PRINCIPAL — LOGIN
     O QUE FAZ: Tela de entrada do sistema com autenticação por email e senha
-    DATA: 2026-06-23
+    DATA: 2026-06-24
     RESULTADO ESPERADO: Tela de login responsiva, estilizada e funcional
   -->
   <meta charset="UTF-8" />
@@ -20,9 +20,6 @@
   <!-- Estilos globais -->
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/login.css" />
-
-  <!-- SweetAlert2 -->
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body class="login-body">
 
@@ -85,7 +82,9 @@
 
   </div>
 
-  <!-- Scripts -->
+  <!-- Scripts — ordem obrigatória -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="assets/js/app.js"></script>
   <script src="assets/js/login.js"></script>
 

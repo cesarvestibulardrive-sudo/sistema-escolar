@@ -1,0 +1,124 @@
+/*
+TITULO: ESTILOS DO DASHBOARD
+O QUE FAZ: Define o visual do painel principal do sistema
+DATA: 2026-06-24
+RESULTADO ESPERADO: Dashboard com header, cards e layout responsivo
+*/
+
+/* === HEADER === */
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--primary);
+  color: var(--white);
+  padding: 0.875rem 1.5rem;
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.header-icon { font-size: 1.5rem; }
+
+.header-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-usuario {
+  font-size: 0.875rem;
+  opacity: 0.9;
+}
+
+.btn-sair {
+  padding: 0.4rem 1rem;
+  background: rgba(255,255,255,0.15);
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-sair:hover { background: rgba(255,255,255,0.25); }
+
+/* === CONTEÚDO PRINCIPAL === */
+.dashboard-main {
+  padding: 2rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dashboard-titulo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 0.25rem;
+}
+
+.dashboard-subtitulo {
+  font-size: 0.95rem;
+  color: var(--gray-500);
+  margin-bottom: 2rem;
+}
+
+/* === CARDS === */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+}
+
+.card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: box-shadow 0.2s;
+}
+
+.card:hover { box-shadow: var(--shadow-lg); }
+
+.card-icon { font-size: 2rem; }
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-label {
+  font-size: 0.8rem;
+  color: var(--gray-500);
+  font-weight: 500;
+}
+
+.card-valor {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* === RESPONSIVO === */
+@media (max-width: 600px) {
+  .header-title { font-size: 0.95rem; }
+  .dashboard-main { padding: 1.25rem 1rem; }
+  .cards-grid { grid-template-columns: repeat(2, 1fr); }
+}

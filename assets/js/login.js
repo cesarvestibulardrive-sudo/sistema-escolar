@@ -1,8 +1,8 @@
 /*
-TITULO: LÓGICA DA TELA DE LOGIN
-O QUE FAZ: Controla o formulário de login — validação, mostrar/ocultar senha e feedback visual
-DATA: 2026-06-23
-RESULTADO ESPERADO: Formulário valida campos e exibe mensagens de erro/sucesso ao usuário
+TITULO: AUTENTICAÇÃO REAL COM SUPABASE
+O QUE FAZ: Realiza login via Supabase Auth e redireciona pelo papel do usuário
+DATA: 2026-06-24
+RESULTADO ESPERADO: Usuário autenticado é redirecionado ao dashboard correto
 */
 
 // === MOSTRAR / OCULTAR SENHA ===
@@ -11,8 +11,16 @@ const inputSenha  = document.getElementById('senha');
 
 btnVerSenha.addEventListener('click', () => {
   const visivel = inputSenha.type === 'text';
-  inputSenha.type    = visivel ? 'password' : 'text';
+  inputSenha.type         = visivel ? 'password' : 'text';
   btnVerSenha.textContent = visivel ? '👁' : '🙈';
+});
+
+// === VERIFICAR SE JÁ ESTÁ LOGADO ===
+window.addEventListener('DOMContentLoaded', async () => {
+  const { data: { session } } = await db.auth.getSession();
+  if (session) {
+    window.location.href = 'pages/dashboard/index.html';
+  }
 });
 
 // === SUBMIT DO FORMULÁRIO ===
@@ -37,17 +45,21 @@ formLogin.addEventListener('submit', async (e) => {
   }
 
   // Feedback visual no botão
-  btnLogin.disabled     = true;
-  btnLogin.textContent  = 'Entrando...';
+  btnLogin.disabled    = true;
+  btnLogin.textContent = 'Entrando...';
 
-  // TODO: integrar com Supabase na Etapa 05
-  console.log('✅ Login enviado:', { email });
+  // Autenticação via Supabase
+  const { data, error } = await db.auth.signInWithPassword({ email, password: senha });
 
-  // Simulação temporária (remover na Etapa 05)
-  setTimeout(() => {
+  if (error) {
     btnLogin.disabled    = false;
     btnLogin.textContent = 'Entrar';
-    Swal.fire({ icon: 'info', title: 'Em breve!', text: 'Autenticação será integrada na Etapa 05.' });
-  }, 1500);
+    Swal.fire({ icon: 'error', title: 'Erro ao entrar', text: 'E-mail ou senha incorretos.' });
+    return;
+  }
+
+  // Login bem-sucedido
+  console.log('✅ Login realizado:', data.user.email);
+  window.location.href = 'pages/dashboard/index.html';
 
 });

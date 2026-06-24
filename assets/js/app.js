@@ -1,13 +1,17 @@
 /*
 TITULO: APP PRINCIPAL
 O QUE FAZ: Inicializa o sistema, registra o Service Worker e configura o Supabase
-DATA: 2026-06-23
-RESULTADO ESPERADO: Sistema inicializado com PWA e conexão com Supabase prontos
+DATA: 2026-06-24
+RESULTADO ESPERADO: Sistema inicializado com PWA e conexão real com Supabase
 */
 
 // === CONFIGURAÇÃO DO SUPABASE ===
 const SUPABASE_URL = 'https://oimskzzhxglxdmjizdcx.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_ZWs_9FcqlmDtCbQ3OjWlLA_3nKXUvDC';
+
+// Inicializa o cliente Supabase
+const { createClient } = supabase;
+const db = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 // === REGISTRO DO SERVICE WORKER (PWA) ===
 if ('serviceWorker' in navigator) {
