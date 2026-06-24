@@ -6,8 +6,8 @@ RESULTADO ESPERADO: Sistema inicializado com PWA e conexão com Supabase prontos
 */
 
 // === CONFIGURAÇÃO DO SUPABASE ===
-const SUPABASE_URL = 'COLE_SUA_URL_AQUI';
-const SUPABASE_KEY = 'COLE_SUA_CHAVE_AQUI';
+const SUPABASE_URL = 'https://oimskzzhxglxdmjizdcx.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_ZWs_9FcqlmDtCbQ3OjWlLA_3nKXUvDC';
 
 // === REGISTRO DO SERVICE WORKER (PWA) ===
 if ('serviceWorker' in navigator) {
