@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!--
+    TITULO: PÁGINA PRINCIPAL — LOGIN
+    O QUE FAZ: Tela de entrada do sistema com autenticação por email e senha
+    DATA: 2026-06-23
+    RESULTADO ESPERADO: Tela de login responsiva, estilizada e funcional
+  -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1e40af" />
+  <meta name="description" content="Sistema de Gestão Escolar" />
+
+  <title>Sistema de Gestão Escolar</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json" />
+
+  <!-- Estilos globais -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/login.css" />
+
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body class="login-body">
+
+  <div class="login-wrapper">
+
+    <!-- CARD DE LOGIN -->
+    <div class="login-card">
+
+      <!-- LOGO / CABEÇALHO -->
+      <div class="login-header">
+        <div class="login-icon">🏫</div>
+        <h1 class="login-title">Gestão Escolar</h1>
+        <p class="login-subtitle">Acesse sua conta para continuar</p>
+      </div>
+
+      <!-- FORMULÁRIO -->
+      <form class="login-form" id="formLogin">
+
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="seu@email.com"
+            autocomplete="email"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="senha">Senha</label>
+          <div class="input-senha">
+            <input
+              type="password"
+              id="senha"
+              name="senha"
+              placeholder="••••••••"
+              autocomplete="current-password"
+              required
+            />
+            <button type="button" id="btnVerSenha" class="btn-ver-senha" aria-label="Mostrar senha">
+              👁
+            </button>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-login" id="btnLogin">
+          Entrar
+        </button>
+
+      </form>
+
+      <!-- RODAPÉ -->
+      <div class="login-footer">
+        <p>Sistema de Gestão Escolar &copy; 2026</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/login.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,158 @@
+/*
+TITULO: ESTILOS DA TELA DE LOGIN
+O QUE FAZ: Define o visual completo da página de autenticação
+DATA: 2026-06-23
+RESULTADO ESPERADO: Tela de login moderna, responsiva e com boa UX
+*/
+
+/* === FUNDO DA PÁGINA === */
+.login-body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #0f766e 100%);
+  padding: 1rem;
+}
+
+/* === CONTAINER CENTRAL === */
+.login-wrapper {
+  width: 100%;
+  max-width: 420px;
+}
+
+/* === CARD === */
+.login-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 2.5rem 2rem;
+  width: 100%;
+}
+
+/* === CABEÇALHO === */
+.login-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.login-icon {
+  font-size: 3rem;
+  margin-bottom: 0.75rem;
+}
+
+.login-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.25rem;
+}
+
+.login-subtitle {
+  font-size: 0.9rem;
+  color: var(--gray-500);
+}
+
+/* === FORMULÁRIO === */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-group label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gray-700);
+}
+
+.form-group input {
+  padding: 0.75rem 1rem;
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  color: var(--gray-900);
+  transition: border-color 0.2s;
+  outline: none;
+  width: 100%;
+}
+
+.form-group input:focus {
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
+}
+
+/* === CAMPO SENHA COM BOTÃO === */
+.input-senha {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-senha input {
+  padding-right: 3rem;
+}
+
+.btn-ver-senha {
+  position: absolute;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--gray-500);
+  padding: 0.25rem;
+  line-height: 1;
+}
+
+/* === BOTÃO ENTRAR === */
+.btn-login {
+  margin-top: 0.5rem;
+  padding: 0.85rem;
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  width: 100%;
+}
+
+.btn-login:hover {
+  background: var(--primary-dark);
+}
+
+.btn-login:active {
+  transform: scale(0.98);
+}
+
+.btn-login:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* === RODAPÉ === */
+.login-footer {
+  text-align: center;
+  margin-top: 1.75rem;
+  font-size: 0.8rem;
+  color: var(--gray-500);
+}
+
+/* === RESPONSIVO MOBILE === */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 2rem 1.25rem;
+  }
+  .login-title {
+    font-size: 1.25rem;
+  }
+}
