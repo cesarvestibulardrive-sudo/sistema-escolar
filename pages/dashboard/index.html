@@ -2,70 +2,71 @@
 <html lang="pt-BR">
 <head>
   <!--
-    TITULO: DASHBOARD BASE
-    O QUE FAZ: Página inicial após login — verifica sessão e exibe painel
+    TITULO: DASHBOARD COM SIDEBAR
+    O QUE FAZ: Página principal com menu lateral responsivo
     DATA: 2026-06-24
-    RESULTADO ESPERADO: Usuário autenticado vê o dashboard, não autenticado volta ao login
+    RESULTADO ESPERADO: Dashboard com sidebar funcional no desktop e mobile
   -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dashboard — Gestão Escolar</title>
 
   <link rel="stylesheet" href="../../assets/css/style.css" />
+  <link rel="stylesheet" href="../../assets/css/sidebar.css" />
   <link rel="stylesheet" href="../../assets/css/dashboard.css" />
 </head>
 <body>
 
-  <div class="dashboard-wrapper">
+  <!-- HEADER MOBILE -->
+  <header class="header-mobile">
+    <button class="btn-menu-mobile" id="btnMenuMobile">☰</button>
+    <span class="header-mobile-titulo">Gestão Escolar</span>
+    <span></span>
+  </header>
 
-    <!-- HEADER -->
-    <header class="dashboard-header">
-      <div class="header-left">
-        <span class="header-icon">🏫</span>
-        <span class="header-title">Gestão Escolar</span>
-      </div>
-      <div class="header-right">
-        <span class="header-usuario" id="nomeUsuario">Carregando...</span>
-        <button class="btn-sair" id="btnSair">Sair</button>
-      </div>
-    </header>
+  <div class="pagina-wrapper">
 
-    <!-- CONTEÚDO -->
-    <main class="dashboard-main">
-      <h1 class="dashboard-titulo">Bem-vindo ao Sistema!</h1>
-      <p class="dashboard-subtitulo" id="papelUsuario">Carregando informações...</p>
+    <!-- SIDEBAR -->
+    <div id="sidebar-container"></div>
 
-      <div class="cards-grid">
-        <div class="card">
-          <div class="card-icon">👥</div>
-          <div class="card-info">
-            <span class="card-label">Alunos</span>
-            <span class="card-valor">—</span>
+    <!-- CONTEÚDO PRINCIPAL -->
+    <div class="conteudo-principal">
+      <main class="dashboard-main">
+        <h1 class="dashboard-titulo">Bem-vindo ao Sistema!</h1>
+        <p class="dashboard-subtitulo" id="papelUsuario">Carregando informações...</p>
+
+        <div class="cards-grid">
+          <div class="card">
+            <div class="card-icon">👥</div>
+            <div class="card-info">
+              <span class="card-label">Alunos</span>
+              <span class="card-valor">—</span>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-icon">📚</div>
+            <div class="card-info">
+              <span class="card-label">Turmas</span>
+              <span class="card-valor">—</span>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-icon">🎓</div>
+            <div class="card-info">
+              <span class="card-label">Professores</span>
+              <span class="card-valor">—</span>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-icon">📋</div>
+            <div class="card-info">
+              <span class="card-label">Disciplinas</span>
+              <span class="card-valor">—</span>
+            </div>
           </div>
         </div>
-        <div class="card">
-          <div class="card-icon">📚</div>
-          <div class="card-info">
-            <span class="card-label">Turmas</span>
-            <span class="card-valor">—</span>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-icon">🎓</div>
-          <div class="card-info">
-            <span class="card-label">Professores</span>
-            <span class="card-valor">—</span>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-icon">📋</div>
-          <div class="card-info">
-            <span class="card-label">Disciplinas</span>
-            <span class="card-valor">—</span>
-          </div>
-        </div>
-      </div>
-    </main>
+      </main>
+    </div>
 
   </div>
 
@@ -73,6 +74,7 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="../../assets/js/app.js"></script>
+  <script src="../../components/sidebar.js"></script>
   <script src="../../assets/js/dashboard.js"></script>
 
 </body>

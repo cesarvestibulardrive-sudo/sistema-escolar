@@ -1,0 +1,175 @@
+/*
+TITULO: ESTILOS DO MENU LATERAL
+O QUE FAZ: Define o visual da sidebar responsiva do sistema
+DATA: 2026-06-24
+RESULTADO ESPERADO: Menu lateral fixo no desktop e deslizante no mobile
+*/
+
+/* === LAYOUT PRINCIPAL === */
+.pagina-wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+.conteudo-principal {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* === SIDEBAR === */
+.sidebar {
+  width: 240px;
+  min-height: 100vh;
+  background: var(--primary-dark);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  z-index: 200;
+}
+
+/* === HEADER DA SIDEBAR === */
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.25rem 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.sidebar-logo { font-size: 1.5rem; }
+
+.sidebar-titulo {
+  font-size: 0.95rem;
+  font-weight: 700;
+  flex: 1;
+}
+
+.sidebar-fechar {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  opacity: 0.7;
+}
+
+.sidebar-fechar:hover { opacity: 1; }
+
+/* === NAVEGAÇÃO === */
+.sidebar-nav {
+  flex: 1;
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  font-size: 0.9rem;
+  border-radius: 0;
+  transition: background 0.2s, color 0.2s;
+  border-left: 3px solid transparent;
+}
+
+.sidebar-item:hover {
+  background: rgba(255,255,255,0.1);
+  color: var(--white);
+}
+
+.sidebar-item.ativo {
+  background: rgba(255,255,255,0.15);
+  color: var(--white);
+  border-left-color: var(--white);
+  font-weight: 600;
+}
+
+.sidebar-item-icon { font-size: 1.1rem; width: 1.5rem; text-align: center; }
+.sidebar-item-label { flex: 1; }
+
+/* === FOOTER DA SIDEBAR === */
+.sidebar-footer {
+  padding: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.sidebar-sair {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: rgba(255,255,255,0.1);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.sidebar-sair:hover { background: rgba(220,38,38,0.5); }
+
+/* === HEADER MOBILE === */
+.header-mobile {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--primary);
+  color: var(--white);
+  padding: 0.875rem 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.btn-menu-mobile {
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+.header-mobile-titulo {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+/* === OVERLAY MOBILE === */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 199;
+}
+
+.sidebar-overlay.visivel { display: block; }
+
+/* === RESPONSIVO MOBILE === */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    transform: translateX(-100%);
+  }
+
+  .sidebar.aberta { transform: translateX(0); }
+  .sidebar-fechar { display: block; }
+  .header-mobile { display: flex; }
+}
